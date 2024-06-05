@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Facade;
-use Intervention\Image\ImageManager;
+use Intervention\Image;
 
 
 return [
@@ -188,8 +188,9 @@ return [
          * Package Service Providers...
          */
         Yajra\DataTables\DataTablesServiceProvider::class,
-        //Intervention\Image\ImageServiceProvider::class,
-        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
+        UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
+        Intervention\Image\Laravel\ServiceProvider::class,
+
 
 
         /*
@@ -215,8 +216,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'ExampleClass' => App\Example\ExampleClass::class,
-    //        'Image' => Intervention\Image\Faceades\Image::class,
+    'Image' => Intervention\Image\Laravel\Facades\Image::class,
     ])->toArray(),
 
 ];

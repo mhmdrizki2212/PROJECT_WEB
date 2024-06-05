@@ -1,17 +1,17 @@
 @extends('back.layout.template')
 
-@section('title', 'Categories - Admin')
+@section('title', 'List Users - Admin')
 
 @section('content')
 {{-- Content --}}
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <div
         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Categories</h1>
+        <h1 class="h2">Users</h1>
     </div>
 
     <div class="mt-3">
-        <button class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#modalCreate">Create</button>
+        <button class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#modalCreate">Register</button>
         @if ($errors->any())
         <div class="my-3">
             <div class="alert alert-danger">
@@ -35,20 +35,20 @@
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
-                    <th style="text-align: center">No</th>
+                    <th>No</th>
                     <th>Name</th>
-                    <th>slug</th>
+                    <th>Email</th>
                     <th>Created at</th>
                     <th>Function</th>
                 </tr>
             </thead>
 
             <tbody>
-                @foreach ($categories as $item)
+                @foreach ($users as $item)
                 <tr>
-                    <td style="text-align: center">{{ $loop->iteration }}</td>
+                    <td>{{ $loop->iteration }}</td>
                     <td>{{ $item->name }}</td>
-                    <td>{{ $item->slug }}</td>
+                    <td>{{ $item->email }}</td>
                     <td>{{ $item->created_at }}</td>
                     <td>
                         <div class="text-center">
@@ -64,9 +64,9 @@
         </table>
     </div>
 
-    @include('back.category.create-modal')
-    @include('back.category.update-modal')
-    @include('back.category.delete-modal')
+    @include('back.user.create-modal')
+    @include('back.user.delete-modal')
+    @include('back.user.update-modal')
 
 </main>
 
