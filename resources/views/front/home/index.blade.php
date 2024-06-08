@@ -7,8 +7,10 @@
                     <!-- Blog entries-->
                     <div class="col-lg-8">
                         <!-- Featured blog post-->
-                        <div class="card mb-4">
-                            <a href="#!"><img class="card-img-top" src=" {{ asset('storage/back/'.$latest_post->img) }}" alt="..." /></a>
+                        <div class="card mb-4 shadow">
+                            <a href="{{ url('p/' .$latest_post->slug) }}">
+                                <img class="card-img-top featured-img" src=" {{ asset('storage/back/'.$latest_post->img) }}" alt="..." />
+                            </a>
                             <div class="card-body">
                                 <div class="small text-muted"> 
                                     {{ asset($latest_post->created_at->format('d-m-Y') ) }}
@@ -18,7 +20,7 @@
                                 <p class="card-text">
                                     {{Str::limit(strip_tags($latest_post->desc), 250, '...')  }}
                                 </p>
-                                <a class="btn btn-primary" href="#!">Read more →</a>
+                                <a class="btn btn-primary" href="{{ url('p/' .$latest_post->slug) }}">Read more →</a>
                             </div>
                         </div>
                         <!-- Nested row for non-featured blog posts-->
@@ -26,9 +28,9 @@
                             @foreach ($articles as $item)
                             <div class="col-lg-6">
                                 <!-- Blog post-->
-                                <div class="card mb-4">
-                                    <a href="#!"><img class="card-img-top" src="{{ asset('storage/back/'.$item->img) }}" alt="..." /></a>
-                                    <div class="card-body">
+                                <div class="card  mb-4 shadow-sm">
+                                    <a href="{{ url('p/' .$item->slug) }}"><img class="card-img-top post-img" src="{{ asset('storage/back/'.$item->img) }}" alt="..." /></a>
+                                    <div class="card-body card-height">
                                         <div class="small text-muted"> 
                                             {{ asset($item->created_at->format('d-m-y')) }} 
                                             <a href="{{url('category/'. $item->Category->slug)}}">{{ asset( $item->category->name ) }}</a>
@@ -38,7 +40,7 @@
                                             {{Str::limit(strip_tags($item->desc), 250, '...')  }}
 
                                         </p>
-                                        <a class="btn btn-primary" href="#!">Read more →</a>
+                                        <a class="btn btn-primary" href="{{ url('p/' .$item->slug) }}">Read more →</a>
                                     </div>
                                 </div>
                                 <!-- Blog post-->
