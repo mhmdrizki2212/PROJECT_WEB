@@ -17,7 +17,7 @@
         <div class="card-header">Categories</div>
         <div class="card-body">
             <div>
-                @foreach ($category_navbar as $item)
+                @foreach ($categories as $item)
                     <span ><a href="{{ url('category/'.$item->slug) }}" class="bg-primary badge text-white unstyle-category"> {{ $item->name }} </a></span>
                 @endforeach
             </div>
@@ -33,5 +33,22 @@
     <div class="card mb-4 shadow-sm">
         <div class="card-header">Popular Post</div>
         <div class="card-body"></div>
+            @foreach ($popular_post as $item)
+                <div class="card mb-4">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="{{ asset('storage/back/' .$item->img) }}" alt="{{ $item->title }}" class="img-fluid">
+                        </div>
+
+                        <div class="col-md-9">
+                           <div class="card-body">
+                            <p class="card-title">
+                                <a href=" {{ url('p/' .$item->slug) }} "  style="text-decoration: none">{{ $item->title }}</a>
+                            </p>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
     </div>
 </div>
