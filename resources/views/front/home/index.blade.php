@@ -15,7 +15,9 @@
                             </a>
                             <div class="card-body">
                                 <div class="small text-muted"> 
-                                    {{ asset($latest_post->created_at->format('d-m-Y') ) }}
+                                    {{ asset($latest_post->created_at->format('d-m-Y')) }}
+                                    | {{$latest_post->user->name}}
+                                    | <a href="{{url('category/'. $latest_post->Category->slug)}}"> {{ asset($latest_post->Category->name) }}</a>
                                 </div>
                                   
                                 <h2 class="card-title">{{ $latest_post->title }}</h2>
@@ -34,8 +36,9 @@
                                     <a href="{{ url('p/' .$item->slug) }}"><img class="card-img-top post-img" src="{{ asset('storage/back/'.$item->img) }}" alt="..." /></a>
                                     <div class="card-body card-height">
                                         <div class="small text-muted"> 
-                                            {{ asset($item->created_at->format('d-m-y')) }} 
-                                            <a href="{{url('category/'. $item->Category->slug)}}">{{ asset( $item->category->name ) }}</a>
+                                            {{ asset($item->created_at->format('d-m-y')) }}
+                                         |  {{$item->user->name}}
+                                         |   <a href="{{url('category/'. $item->Category->slug)}}">{{ asset( $item->category->name ) }}</a>
                                         </div>
                                         <h2 class="card-title h4"> {{ $item->title }} </h2>
                                         <p class="card-text">

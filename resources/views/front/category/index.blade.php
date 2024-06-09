@@ -16,7 +16,7 @@
                        </form>
                 </div>
 
-                    <p>Showing Article with keyword : <b>{{ $category }}</b></p>
+                    <p>Showing article with category : <b>{{ $category }}</b></p>
                     <a href=" {{ url('articles') }} " class="btn btn-primary btn-sm mb-3">Back</a>
 
                 <div class="row">
@@ -28,7 +28,8 @@
                                 <div class="card-body card-height">
                                     <div class="small text-muted"> 
                                         {{ asset($item->created_at->format('d-m-y')) }} 
-                                        <a href="{{url('category/'. $item->Category->slug)}}">{{ asset( $item->category->name ) }}</a>
+                                       | {{$item->user->name}}
+                                       | <a href="{{url('category/'. $item->Category->slug)}}">{{ asset( $item->category->name ) }}</a>
                                     </div>
                                     <h2 class="card-title h4"> {{ $item->title }} </h2>
                                     <p class="card-text">

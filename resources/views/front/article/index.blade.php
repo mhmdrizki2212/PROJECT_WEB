@@ -17,7 +17,7 @@
                 </div>
 
                 @if ($keyword)
-                    <p>Showing Article with keyword : <b>{{ $keyword }}</b></p>
+                    <p>Showing article with keyword : <b>{{ $keyword }}</b></p>
                     <a href=" {{ url('articles') }} " class="btn btn-primary btn-sm mb-3">Back</a>
                 @endif
 
@@ -31,8 +31,9 @@
                                 <a href="{{ url('p/' .$item->slug) }}"><img class="card-img-top post-img" src="{{ asset('storage/back/'.$item->img) }}" alt="..." /></a>
                                 <div class="card-body card-height">
                                     <div class="small text-muted"> 
-                                        {{ asset($item->created_at->format('d-m-y')) }} 
-                                        <a href="{{url('category/'. $item->Category->slug)}}">{{ asset( $item->category->name ) }}</a>
+                                        {{ asset($item->created_at->format('d-m-y')) }}
+                                      | {{$item->user->name}}  
+                                      |  <a href="{{url('category/'. $item->Category->slug)}}">{{ asset( $item->category->name ) }}</a>
                                     </div>
                                     <h2 class="card-title h4"> {{ $item->title }} </h2>
                                     <p class="card-text">

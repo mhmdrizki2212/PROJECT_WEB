@@ -12,6 +12,7 @@
                             <div class="card-body">
                                 <div class="small text-muted"> 
                                     {{ asset($article->created_at->format('d-m-Y') ) }}
+                                    | {{$item->user->name}}
                                 </div>
                                   
                                 <h1 class="card-title">{{ $article->title }}</h1>

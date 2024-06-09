@@ -14,7 +14,8 @@
                             <div class="card-body">
                                 <div class="small text-muted"> 
                                         <span class="ml-2">{{ asset($article->created_at->format('d-m-Y') ) }}</span>
-                                        <span class="ml-2">
+                                        | <span>{{$article->user->name}}</span>
+                                        | <span class="ml-2">
                                             <a href="{{ url('category/' .$article->Category->slug) }}">{{ $article->Category->name }}</a>
                                         </span>
                                 </div>

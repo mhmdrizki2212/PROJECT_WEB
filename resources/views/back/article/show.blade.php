@@ -49,6 +49,10 @@
                 <th>Publish Date</th>
                 <td>{{ $article->publish_date }}</td>
             </tr>
+            <tr>
+                <th>Writers</th>
+                <td>{{ $article->user->name }}</td>
+            </tr>
         </table>
         <div class="float-end">
             <a href="{{ url ('article')}}" class="btn btn-secondary">Back</a>
