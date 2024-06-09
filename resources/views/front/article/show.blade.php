@@ -24,6 +24,16 @@
                                 <p class="card-text">
                                     {!! ($article->desc) !!}
                                 </p>
+
+                                <div class="mt-5">
+                                    <p style="font-size: 20px"><b>Share This</b></p>
+
+                                    <a href="https://www.facebook.com/sharer.php?u={{url()->current()}}"
+                                         class="btn btn-primary" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+                                    <a href="https://api.whatsapp.com/send?text={{url()->current()}}" 
+                                        class="btn btn-success" target="_blank" ><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                </div>
+
                             </div>
                         </div>
 
