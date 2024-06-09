@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <meta charset="UTF-8" />
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
-        <meta name="author" content="" />
+        <meta name="author" content="Rizki" />
         @stack('meta-seo')
-        <title>NEWS-JAMBI</title>
+        <title>@yield('title')</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{{asset('front/img/favicon.ico')}}" >
         <!-- Core theme CSS (includes Bootstrap)-->
         <link rel="stylesheet" href="{{ asset('front/css/styles.css') }}">
         <link rel="stylesheet" href="{{ asset('front/css/custom.css') }}">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         @stack('css')
     </head>
     <body>
@@ -36,6 +38,10 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="{{ asset('front/js/scripts.js') }}"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
         @stack('js')
 
     </body>

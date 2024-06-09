@@ -4,8 +4,6 @@ namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
-use App\Models\Category;
-use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
@@ -25,15 +23,18 @@ class ArticleController extends Controller
         }
 
         return view('front.article.index', [
-            'articles' => $articles,
-            'keyword'  => $keyword
+            'articles'           => $articles,
+            'keyword'            => $keyword
+
         ]);
     }
     public function show($slug)
     {
+        $article = Article::whereSlug($slug)->firstOrFail();
+        $article->increment('views');
+
         return view('front.article.show', [
-            'article' => Article::whereSlug($slug)->first(),
-            'categories'  => Category::latest()->get(),
+            'article' => $article
         ]);
     }
 }

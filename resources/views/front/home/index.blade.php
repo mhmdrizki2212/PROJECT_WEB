@@ -1,5 +1,7 @@
 @extends('front.layout.template')
 
+@section('title', 'NEWS-JAMBI')
+
 @section('content')
             <!-- Page content-->
             <div class="container">
@@ -7,7 +9,7 @@
                     <!-- Blog entries-->
                     <div class="col-lg-8">
                         <!-- Featured blog post-->
-                        <div class="card mb-4 shadow">
+                        <div class="card mb-4 shadow" data-aos="fade-in">
                             <a href="{{ url('p/' .$latest_post->slug) }}">
                                 <img class="card-img-top featured-img" src=" {{ asset('storage/back/'.$latest_post->img) }}" alt="..." />
                             </a>
@@ -26,7 +28,7 @@
                         <!-- Nested row for non-featured blog posts-->
                         <div class="row">
                             @foreach ($articles as $item)
-                            <div class="col-lg-6">
+                            <div class="col-lg-6" data-aos="fade-up">
                                 <!-- Blog post-->
                                 <div class="card  mb-4 shadow-sm">
                                     <a href="{{ url('p/' .$item->slug) }}"><img class="card-img-top post-img" src="{{ asset('storage/back/'.$item->img) }}" alt="..." /></a>

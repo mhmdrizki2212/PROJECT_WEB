@@ -1,6 +1,6 @@
 @extends('front.layout.template')
 
-@section('title', 'Articles-NEWS JAMBI')
+@section('title', $category. '-NEWS JAMBI')
 
 
 @section('content')
@@ -16,17 +16,13 @@
                        </form>
                 </div>
 
-                @if ($keyword)
-                    <p>Showing Article with keyword : <b>{{ $keyword }}</b></p>
+                    <p>Showing Article with keyword : <b>{{ $category }}</b></p>
                     <a href=" {{ url('articles') }} " class="btn btn-primary btn-sm mb-3">Back</a>
-                @endif
-
-
 
                 <div class="row">
                      @forelse ($articles as $item)
-                        <div class="col-4" data-aos="flip-up">
-                             <!-- Blog post-->
+                     <div class="col-4" data-aos="flip-up">
+                        <!-- Blog post-->
                              <div class="card  mb-4 shadow-sm">
                                 <a href="{{ url('p/' .$item->slug) }}"><img class="card-img-top post-img" src="{{ asset('storage/back/'.$item->img) }}" alt="..." /></a>
                                 <div class="card-body card-height">
