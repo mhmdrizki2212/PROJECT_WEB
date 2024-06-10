@@ -11,7 +11,7 @@
                         <!-- Featured blog post-->
                         <div class="card mb-4 shadow">
                             <a href="{{ asset('front/img/pngegg.png') }}">
-                                <img class="card-img-top featured-img" src="{{ asset('front/img/pngegg.png') }}" alt="About Laravel Blog" />
+                                <img class="card-img-top featured-img" src="{{ asset('front/img/logo-web.png') }}" alt="About Laravel Blog" />
                             </a>
                             <div class="card-body">
                                 <div class="small text-muted">{{ date('d/m/Y') }} </div>
