@@ -28,7 +28,7 @@
     <div class="card mb-4 shadow-sm">
         <div class="card-header">Side Widget</div>
         <div class="card-body">
-            <a href="https://domainesia.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.rumahweb.com/" target="_blank" rel="noopener noreferrer">
                 <img src="{{ $config['ads_widget'] }}" alt="ads_widget" class="img-fluid" width="100%">
             </a>
         </div>
